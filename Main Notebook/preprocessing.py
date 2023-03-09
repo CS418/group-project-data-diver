@@ -1,14 +1,15 @@
 import pandas as pd
 
-# df = pd.read_csv('Crime.csv')
-# df = df[df['Year'] >= 2016]
-# df = df[['Primary Type', 'Description', 'Location Description', 'Domestic', 'Year', 'Date', 'ID']]
-# print(df.columns)
-# print(df)
-# df.to_pickle('crime_reduced.pkl')
-
-df: pd.DataFrame = pd.read_pickle('crime_reduced.pkl')
+df: pd.DataFrame = pd.read_csv('Crime.csv')
+df = df[df['Year'] >= 2019]
+df = df[['Primary Type', 'Description', 'Location Description', 'Domestic', 'Year', 'Date', 'ID']]
+print(df.columns)
+print(df)
 df = df.set_index('ID')
+
+df.to_csv('crime_reduced.csv')
+
+df: pd.DataFrame = pd.read_csv('crime_reduced.csv')
 
 
 def describe(df):
